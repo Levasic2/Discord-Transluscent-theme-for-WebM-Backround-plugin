@@ -1,0 +1,11 @@
+{
+ "id": "com.example.mytheme",
+ "name": "Transluscent theme for WebM Backround plugin",
+ "author": {
+     "name": "Levasic2"
+ },
+ "description": "Theme made to exclusively work alongside with my WebM Background plugin.",
+ "version": "1.0.0",
+ "license": "MIT",
+ "type": "replugged-theme"
+}

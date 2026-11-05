@@ -1,0 +1,376 @@
+/**
+ * @name Transluscent theme for WebM Backround plugin
+ * @author Levasic2
+ * @description Theme made to exclusively work alongside with my WebM Background plugin.
+ * @version 1.0
+**/
+
+/* Background (Just in case) */
+.sidebar_pog62O.theme-dark.theme-darker.images-dark {
+    background-color: black;
+}
+
+/* Font */
+/* Color White */
+.match_hm_rAU,
+.header_hm_rAU,
+.textContent_o3hXTom,
+.overflowTooltip_zln_tS,
+.headerText_Bce46W,
+.subtext_zln_tS,
+.text_CXmngM,
+.truncated_HigqCD {
+    color: white !important;
+}
+
+/* Color Black */
+.vc-smyn-suffix,
+.content_bLMKT5 > div,
+.timestamp_2i8Bfm.timestampInline_2i8Bfm,
+.timestamp_2i8Bfm.timestampInline_2i8Bfm time {
+    color: rgb(3, 2, 22) !important;
+}
+
+/* Font Weight */
+.text_cmkR8z,
+.text_CXmngM,
+.truncated_HigqCD,
+.vc-smyn-suffix,
+.content_bLMKT5 > div,
+.timestamp_2i8Bfm.timestampInline_2i8Bfm,
+.timestamp_2i8Bfm.timestampInline_2i8Bfm time{
+    font-weight: 600;
+}
+
+/* Rounded borders */
+*:not(img.avatar_2i8Bfm):not(.callAvatarMaskContainer_NdapwK):not(.callAvatarMaskContainer_NdapwK *) {
+    border-radius: 10px !important;
+}
+
+/* Keep profile pictures circular */
+img.avatar_2i8Bfm {
+    border-radius: 50% !important;
+}
+
+/* Friend remove button */
+#friend-row-remove-friend span.body-sm\/medium_RAOoio.text_cmkR8z {
+    color: #ff0101 !important;
+}
+
+/* Scroller */
+.scroller_a1DYes::-webkit-scrollbar,
+.messagesWrapper_8AE1Qq .scroller_8AE1Qq::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+#app-mount > div.appAsidePanelWrapper_YRXZu0 > div > div.app_YRXZu0 > div > div.layers_Fd0FEH.layers_QbT-Jy > div > div > div > div.content_pog62O > div.page_pog62O > div > div > div.content_z_gUBg > main {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* Keep both scrollbar thumbs visible */
+.scroller_a1DYes::-webkit-scrollbar-thumb,
+.messagesWrapper_8AE1Qq .scroller_8AE1Qq::-webkit-scrollbar-thumb {
+    background: rgba(12, 38, 95, 1) !important;
+    border-radius: 10px !important;
+}
+
+/* Both scrollbar tracks */
+.scroller_a1DYes::-webkit-scrollbar-track,
+.messagesWrapper_8AE1Qq .scroller_8AE1Qq::-webkit-scrollbar-track {
+    background: rgba(12, 38, 95, 0.3) !important;
+}
+
+/* Same hover color for both */
+.scroller_a1DYes::-webkit-scrollbar-thumb:hover,
+.messagesWrapper_8AE1Qq .scroller_8AE1Qq::-webkit-scrollbar-thumb:hover {
+    background: rgb(16, 50, 123) !important;
+}
+
+/* Top Bar */
+.bar_3zSH5d {
+    background-color: rgba(5, 18, 44, 0.3) !important;
+}
+
+.container_ybUK7Z {
+    background-color: rgba(8, 26, 65, 0.3) !important;
+}
+
+/* Side Bar */
+.sidebarList_pog62O {
+    margin: 5px;
+    border: solid 3px rgba(17, 7, 59, 0.3);
+    background-color: rgba(5, 18, 44, 0.3) !important;
+}
+
+/* Search Bar */
+.searchBar_u88IQl {
+    background-color: rgba(5, 18, 44, 0.3) !important;
+    border-color: rgba(17, 7, 59, 0.3);
+}
+
+/* Server Side Bar */
+.wrapper_5dqHTG {
+    background-color: rgba(5, 18, 44, 0.3) !important;
+}
+
+.wrapper_5dqHTG:has(.tutorialContainer_1IyMuq) {
+    background-color: rgba(5, 18, 44, 0.3) !important;
+    margin-top: 4.8px;
+    border: solid 3px rgba(5, 18, 44, 0.3);
+}
+
+/* People Side Bar */
+.scroller_Bce46W {
+    background-color: rgba(8, 26, 65, 0.3) !important;
+}
+
+/* Search Channel */
+.buttonChildrenWrapper_F7qvhY {
+    border: solid 2px;
+    padding: 1px;
+}
+
+.lineClamp1_MMUIw6 .overflow__WDjet {
+    font-size: 0 !important;
+}
+
+.lineClamp1_MMUIw6 .overflow__WDjet::after {
+    content: "Name your wish and I will guide you";
+    font-size: 14px;
+}
+
+.container_dvN-MP {
+    background-color: rgba(5, 18, 44, 0.3) !important;
+    border: rgba(5, 18, 44, 0.3) solid 3px;
+}
+
+/* Placeholder text */
+.input_a1DYes::placeholder {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    place-content: "";
+}
+
+.searchMessage_12gY2- {
+    font-size: 0 !important;
+}
+
+.searchMessage_12gY2-::after {
+    content: "Name your wish and I will guide you";
+    font-size: 20px;
+    color: white;
+}
+
+/* Better Folders Sidebar */
+.vc-betterFolders-sidebar {
+    border: rgba(5, 18, 44, 0.3) solid 3px;
+    margin: 5px;
+    margin-right: 1.5px;
+    background-color: rgba(5, 18, 44, 0.3) !important;
+}
+
+.item__o8_Xq {
+    background-color: rgba(146, 173, 227, 0.3) !important;
+}
+
+.tree_5dqHTG {
+    margin-top: 10px;
+}
+
+/* Profile */
+.container_g6VwXp {
+    background-color: rgba(5, 18, 44, 0.3) !important;
+    border-color: white;
+    padding-left: 10px;
+}
+
+.panels_pog62O {
+    padding-left: 3px;
+    padding-right: 1px;
+    border: rgba(5, 18, 44, 0.3) solid 3px;
+}
+
+.sidebar_pog62O::after {
+    background: rgba(5, 18, 44, 0.3) !important;
+}
+
+/* Friends Tab */
+/* Entire Page */
+.container_zrUwGA {
+    border: solid 3px rgba(5, 18, 44, 0.3);
+}
+
+.sidebar_pog62O {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.content_pog620 {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.page_pog62O {
+    margin: 5px;
+    margin-left: 1px;
+}
+
+/* Background */
+.tabBody_zrUwGA {
+    background-color: rgba(15, 85, 165, 0.3) !important;
+}
+
+/* DMs */
+/* Transparent message background */
+.scrollerInner_8AE1Qq {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* Messages */
+.markup_ku1OHH.messageContent_2i8Bfm{
+    background-color: blu;
+}
+
+/* Buttons */
+.scroller_M3qk4j,
+.layer_q63kB5,
+.menu_M3qk4j,
+.buttonsInner_SY_P2T {
+    background: rgba(50, 60, 192, 0.2) !important;
+    border: rgba(255, 255, 255, 0.8) solid 1px;
+    border-radius: 5%;
+}
+
+.buttonChildrenWrapper_F7qvhY {
+    border: transparent;
+}
+
+.actionButton_5GqXgh {
+    background-color: rgba(8, 26, 65, 0.3) !important;
+}
+
+/* Tooltip */
+.tooltip_ZDdyhE {
+    transform: translateX(0px);
+    background-color: rgba(12, 37, 91, 0.3) !important;
+    transition: opacity 0.08s linear !important;
+}
+
+/* Tooltip text */
+div.defaultColor_MMUIw6[data-text-variant="body-sm/medium"] {
+    font-size: 14px !important;
+}
+
+/* Tooltip caret */
+.caretFill_ZDdyhE {
+    color: rgba(12, 37, 91, 0.3) !important;
+    background-color: rgba(12, 37, 91, 0.3) !important;
+    border-color: rgba(12, 37, 91, 0.3) !important;
+    fill: rgba(12, 37, 91, 0.3) !important;
+}
+
+/* Message hover toolbar buttons */
+.hoverBarButton_DpHsW6 {
+    transition: none !important;
+}
+
+/* Active Now Tab */
+/* Border */
+.itemCard_-7KzVR {
+    border: 3px solid rgb(17, 7, 59, 0.3);
+}
+
+/* Activity card transparency */
+.itemCard_-7KzVR.wrapper_o3hXTo.outer_ERB-Vv,
+.itemCard_-7KzVR .body_o3hXTo,
+.itemCard_-7KzVR .inset_ERB-Vv,
+.itemCard_-7KzVR .gameSection_o3hXTo,
+.questCardContextMenuTrigger_-7KzVR {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* People */
+.headerFull_o3hXTo.header_o3hXTo {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+/* Games */
+.section_o3hXTo,
+.wrapper_vVEhpw {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Background */
+.nowPlayingColumn_zrUwGA {
+    background-color: rgba(14, 43, 106, 0.3) !important;
+}
+
+/* Search Bar */
+.wrapper_UcGqzv {
+    background-color: rgba(14, 43, 106, 0.3) !important;
+    border-radius: 20px !important;
+}
+
+/* Search bar text */
+.input_0PLWhS {
+    color: #fbfbfd !important;
+}
+
+/* Placeholder text */
+.input_0PLWhS::placeholder {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* Discord Icon */
+[data-list-item-id="guildsnav___home"] .childWrapper_JJ-hgR {
+    background: transparent !important;
+    background-image: url("https://i.imgur.com/PImIfKX.png") !important;
+    background-size: 100% !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    border-radius: 45% !important;
+    overflow: hidden !important;
+}
+
+[data-list-item-id="guildsnav___home"] {
+    transform: translateY(3px) !important;
+}
+
+/* Hide logo */
+[data-list-item-id="guildsnav___home"] .childWrapper_JJ-hgR svg {
+    display: none !important;
+}
+
+
+/* Remove Unnecessary */
+/* Discord Background Removal */
+.app_QbT-Jy,
+.bg_Fd0FEH,
+#app-mount,
+.container_zrUwGA,
+.privateChannels_u88IQl {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+.container_zrUwGA {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.privateChannels_u88IQl {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* DM Chat Background Transparency */
+.chat_z_gUBg {
+    background-color: rgba(15, 85, 165, 0.3) !important;
+}
+
+.children_ybUK7Z::after {
+    display: none !important;
+    content: none !important;
+}
