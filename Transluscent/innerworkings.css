@@ -1,153 +1,280 @@
-/* ============ THEME VARIABLES ============ */
+/* 
+============ CHAPTERS ============
+
+ 1. VARIABLES
+    1.1 Backgrounds
+    1.2 Text
+    1.3 Interactive UI (buttons, scrollbars, reactions)
+    1.4 Discord variable overrides
+
+ 2. BASE
+    2.1 Window & page transparency
+    2.2 Rounded corners
+    2.3 Safety fallback
+
+ 3. TYPOGRAPHY
+    3.1 Main color
+    3.2 Sub color
+    3.3 Font weight
+
+ 4. LAYOUT & BACKGROUNDS
+    4.1 Top bar
+    4.2 Chat area
+    4.3 Sidebars
+        4.3.1 Sidebar frames
+        4.3.2 Server list
+        4.3.3 Channel list
+        4.3.4 DM list
+        4.3.5 Profile panel
+        4.3.6 Member List
+    4.4 Call
+    4.5 Friends tab
+    4.6 Active Now tab
+    
+
+ 5. MESSAGES
+    5.1 Message background
+    5.2 Replies
+    5.3 Reactions
+
+ 6. INTERACTIVE UI
+    6.1 Buttons
+    6.2 Scrollbars
+    6.3 Search bars
+    6.4 Input fields
+    6.5 Tooltips
+    6.6 Server Activity
+
+ 7. CUSTOM ELEMENTS
+    7.1 Search text replacement
+    7.2 Home icon
+
+ 8. LEGACY (exact-hash selectors, to be converted)
+    8.1 Backgrounds
+    8.2 Typography
+    8.3 Layout
+    8.4 Interactive UI
+    8.5 Active Now tab
+
+============ COMMENTS ============
+SELFREMINDER - reminder for myself to do something
+ORDER - must be before something
+VERIFY - need to make sure it doesn't override anything
+==================================
+
+================================== */
+
+
+/* =====================================================================
+   1. VARIABLES
+   ===================================================================== */
+
+/* ---------- 1.1 Backgrounds ---------- */
 :root {
-    /* BACKGROUNDS */
+    /* Colored */
     --main-bg: rgba(5, 18, 44, 0.3);
-    --secondary-bg: rgba(8, 26, 65, 0.3);
+    --secondary-bg: rgba(6, 19, 47, 0.3);
     --dark-bg: rgba(0, 0, 0, 0.3);
     --border-color: rgba(17, 7, 59, 0.3);
     --dm-bg: rgba(5, 18, 44, 0.3);
-    --reply-bg: rgba(15, 0, 91, 0.3);
-    --reply-bar: rgba(15, 0, 91, 0.5);
+    --reply-bg: rgba(5, 0, 91, 0.3);
+    --reply-bar: rgba(5, 0, 91, 0.5);
+    --side-profile: rgba(24, 36, 89, 0.6);
+    --chat-header-bg: rgba(0, 0, 0, 0.3);
+    --member-bg: rgba(5, 18, 44, 0.7);
 
-    /* FONT COLOR AND WEIGHT */
+    /* Transparent */
+    --Window-bg: transparent;
+}
+
+/* ---------- 1.2 Text ---------- */
+:root {
     --color-main: white;
     --color-sub: rgb(162, 161, 161);
     --weight: 600;
+}
 
-    /* INTERACTIVE UI */
+/* ---------- 1.3 Interactive UI ---------- */
+:root {
+    /* Hover */
+    --activity-bg: rgba(0, 0, 0, 0.7);
+    --member-bg-hover: rgba(11, 15, 65, 0.8);
+
+    /* Buttons */
     --button-bg: rgba(23, 28, 92, 0.7);
 
-    /* SCROLLBARS */
+    /* Scrollbars */
     --scrollbar: rgba(12, 38, 95, 1);
     --scrollbar-track: rgba(12, 38, 95, 0.3);
     --scrollbar-hover: rgb(16, 50, 123);
 
-    /* REACTION BUTTONS */
-    --reaction-bg: rgba(126, 135, 255, 0.2);
-    --reaction-hover-bg: rgba(126, 135, 255, 0.4);
+    /* Reaction buttons */
+    --reaction-bg: rgba(16, 50, 123, 0.4);
+    --reaction-hover-bg: rgb(16, 38, 95, 0.6);
     --reaction-border: rgba(126, 135, 255, 0.5);
 
-    /* ADD REACTION BUTTON */
-    --addReaction-bg: rgba(126, 135, 255, 0.2);
-    --addReaction-hover-bg: rgba(126, 135, 255, 0.4);
+    /* Add reaction button */
+    --addReaction-bg: rgba(16, 50, 123, 0.4);
+    --addReaction-hover-bg: rgb(16, 38, 95, 0.6);
     --addReaction-border: rgba(126, 135, 255, 0.5);
 }
 
-
-/* ============ GLOBAL BACKGROUND & ROUNDED CORNERS ============ */
-/* This is in case I break something */
-.sidebar_pog62O.theme-dark.theme-darker.images-dark {
-    background-color: black;
+/* ---------- 1.4 Discord variable overrides ---------- */
+.theme-dark,
+.theme-darker,
+.theme-light,
+.theme-midnight {
+    --background-base-lowest: transparent;
+    --background-base-lower: transparent;
+    --background-base-low: transparent;
 }
 
-.flex_hkRWAH{
-    background-color: rgba(6, 0, 0, 0.3);
+
+/* =====================================================================
+   2. BASE
+   ===================================================================== */
+
+/* ---------- 2.1 Window & page transparency ---------- */
+[class^="app_"],
+[class*=" app_"],
+[class^="bg_"],
+[class*=" bg_"],
+html,
+body,
+#app-mount {
+    background: var(--Window-bg) !important;
 }
 
-*:not(img.avatar_2i8Bfm):not(.callAvatarMaskContainer_NdapwK):not(.callAvatarMaskContainer_NdapwK *) {
+/* ---------- 2.2 Rounded corners ---------- */
+*:not(img[class*="avatar_"]):not([class*="callAvatarMaskContainer_"]):not([class*="callAvatarMaskContainer_"] *) {
     border-radius: 10px !important;
 }
 
-img.avatar_2i8Bfm {
+img[class*="avatar_"] {
     border-radius: 50% !important;
 }
 
-/* TRANSPARENT BACKGROUNDS */
-.app_QbT-Jy,
-.bg_Fd0FEH,
-#app-mount,
-.container_zrUwGA,
-.privateChannels_u88IQl,
-.container_H5ozaj,
-.upperContainer_ybUK7Z,
-.wrapper_hbKzX7,
-.callContainer_hbKzX7,
-.root_rTsZa_,
-.sidebarOpen_hbKzX7,
-.chatContent_z_gUBg,
-.channelTextArea_z_gUBg,
-.aside_HbUF2J {
-    background: transparent !important;
+/* ---------- 2.3 Safety fallback ---------- */
+/* This is in case I break something so I know that there is an issue */
+[class^="sidebar_"].theme-dark.theme-darker.images-dark,
+[class*=" sidebar_"].theme-dark.theme-darker.images-dark {
+    background-color: rgb(255, 0, 0);
 }
 
-.container_zrUwGA,
-.privateChannels_u88IQl {
-    background-color: var(--dark-bg) !important;
-}
 
-#app-mount > div.appAsidePanelWrapper_YRXZu0 > div > div.app_YRXZu0 > div > div.layers_Fd0FEH.layers_QbT-Jy > div > div > div > div.content_pog62O > div.sidebar_pog62O.theme-dark.theme-darker.images-dark > section,
-.container_FrbQJp {
-    background: transparent !important;
-    border: transparent solid !important;
-}
+/* =====================================================================
+   3. TYPOGRAPHY
+   ===================================================================== */
 
-/* ============ TEXT COLORS & FONT WEIGHT ============ */
-/* MAIN COLOR */
-.match_hm_rAU,
-.header_hm_rAU,
-.textContent_o3hXTom,
-.overflowTooltip_zln_tS,
-.headerText_Bce46W,
-.subtext_zln_tS,
-.text_CXmngM,
-.truncated_HigqCD {
+/* ---------- 3.1 Main color ---------- */
+[class*="textContent_"],         
+[class*="overflowTooltip_"],
+[class*="headerText_"],
+[class*="subtext_"],
+[class*="truncated_"],
+[class*="membersGroupName_"],
+[class*="membersGroupHeader_"],
+[class*="headerContainer_"] {
     color: var(--color-main) !important;
 }
+/* SELFREMINDER - might have to add span if this breaks something */
 
-/* SUB COLOR */
+/* ---------- 3.2 Sub color ---------- */
 .vc-smyn-suffix,
-.content_bLMKT5 > div,
-.timestamp_2i8Bfm.timestampInline_2i8Bfm,
-.timestamp_2i8Bfm.timestampInline_2i8Bfm time,
-.latin12CompactTimeStamp_2i8Bfm {
+[class*="timestamp_"][class*="timestampInline_"],
+[class*="timestamp_"][class*="timestampInline_"] time,
+[class*="latin12CompactTimeStamp_"] {
     color: var(--color-sub) !important;
 }
 
-/* FONT WEIGHT */
-.text_cmkR8z,
-.text_CXmngM,
-.truncated_HigqCD,
+/* ---------- 3.3 Font weight ---------- */
+[class*="truncated_"],
 .vc-smyn-suffix,
-.content_bLMKT5 > div,
-.timestamp_2i8Bfm.timestampInline_2i8Bfm,
-.timestamp_2i8Bfm.timestampInline_2i8Bfm time,
-.latin12CompactTimeStamp_2i8Bfm {
+[class*="timestamp_"][class*="timestampInline_"],
+[class*="timestamp_"][class*="timestampInline_"] time,
+[class*="latin12CompactTimeStamp_"] {
     font-weight: var(--weight);
 }
 
-/* ============ MAIN LAYOUT ============ */
 
-/* TOP BAR */
-.bar_3zSH5d {
-    background-color: var(--main-bg) !important;
+/* =====================================================================
+   4. LAYOUT & BACKGROUNDS
+   ===================================================================== */
+
+/* ---------- 4.1 Top bar ---------- */
+[class*="upperContainer_"] {
+    background: var(--Window-bg) !important;
 }
 
-.container_ybUK7Z {
+/* (VERIFY) */
+[class*="container_"]:has(> [class*="upperContainer_"]) {
     background-color: var(--secondary-bg) !important;
 }
 
-.children_ybUK7Z::after {
+[class*="upperContainer_"] [class*="children_"]::after {
     display: none !important;
     content: none !important;
 }
 
-/* MAIN CHAT BACKGROUND */
-.chat_z_gUBg {
+/* ---------- 4.2 Chat area ---------- */
+[class*="chatContent_"],
+[class*="channelTextArea_"] {
+    background: var(--Window-bg) !important;
+}
+
+/* Main chat background */
+[class^="chat_"],
+[class*=" chat_"] {
     background-color: rgba(15, 85, 165, 0.3) !important;
 }
 
-.scrollerInner_8AE1Qq,
-#app-mount > div.appAsidePanelWrapper_YRXZu0 > div > div.app_YRXZu0 > div > div.layers_Fd0FEH.layers_QbT-Jy > div > div > div > div.content_pog62O > div.page_pog62O > div > div > div.content_z_gUBg > main {
+/* Chat header (DM / channel title bar) */
+[class*="subtitleContainer_"] [class*="container_"]:has(> [class*="upperContainer_"]) {
+    background-color: var(--chat-header-bg) !important;
+}
+
+/* Transparent message scroller.
+   ORDER: must stay before 5.1 */
+[class*="scrollerInner_"],
+main[class*="chatContent_"] {
     background: transparent !important;
     background-color: transparent !important;
     background-image: none !important;
 }
 
+/* Inside call (VERIFY) */
+[class*="chatContent_"] [class*="form_"] {
+    background-color: var(--button-bg);
+    padding-top: 9px;
+}
 
-/* ============ SIDEBARS ============ */
+#app-mount [class*="messagesWrapper"] [class*="scrollerBase"][class*="auto"] {
+    background: transparent !important;
+    background-color: transparent !important;
+}
 
-/* MAIN SIDEBAR */
-.sidebarList_pog62O,
+/* Hide bottom chat gradient */
+[class*="chatTypingGradientAtBottom_"],
+[class*="chatGradient_"] {
+    display: none !important;
+}
+
+/* ---------- 4.3 Sidebars ---------- */
+
+/* 4.3.1 Sidebar frames */
+[class^="sidebar_"],
+[class*=" sidebar_"] {
+    background-color: var(--dark-bg) !important;
+}
+
+[class^="sidebar_"]::after,
+[class*=" sidebar_"]::after {
+    background: var(--main-bg) !important;
+}
+
+/* Channel list + Better Folders sidebar share one frame.
+   ORDER: margin-right below must stay after the shared rule. */
+[class*="sidebarList_"],
 .vc-betterFolders-sidebar {
     background-color: var(--main-bg) !important;
     border: 3px solid var(--border-color);
@@ -158,313 +285,280 @@ img.avatar_2i8Bfm {
     margin-right: 1.5px;
 }
 
-/* SIDEBAR PROFILE */
-.container_g6VwXp {
+/* 4.3.2 Server list */
+/* Server sidebar (VERIFY) */
+[class*="wrapper_"]:has([class*="tutorialContainer_"]) {
+    background-color: var(--main-bg) !important;
+    margin-top: 4.8px;
+    border: 3px solid var(--main-bg);
+}
+
+/* Vencord Better Folders */
+nav:has(> [data-list-id="guildsnav"]) {
+    margin-top: 10px;
+    background-color: transparent;
+}
+
+/* 4.3.3 Channel list */
+/* Header (VERIFY) */
+[class*="sidebarList_"] [class*="header_"] {
+    background: var(--main-bg) !important;
+}
+
+/* 4.3.4 DM list
+   ORDER: transparent first, then dark-bg overrides it. */
+[class*="privateChannels_"] {
+    background-color: var(--dark-bg) !important;
+}
+
+/* 4.3.5 Profile panel (bottom of the sidebar) */
+[class^="sidebar_"] > section,
+[class*=" sidebar_"] > section {
+    background: var(--side-profile) !important;
+    border: transparent solid !important;
+}
+
+[class*="panels_"] {
+    padding: 0 1px 0 3px;
+    border: 3px solid var(--main-bg);
+}
+
+[class*="panels_"] > [class*="container_"]:has(> [class*="accountPopoutButtonWrapper_"]) {
     background-color: var(--main-bg) !important;
     border-color: white;
     padding-left: 10px;
 }
 
-.panels_pog62O {
-    padding: 0 1px 0 3px;
-    border: 3px solid var(--main-bg);
+/* 4.3.6 Member List */
+[class*="content_"] > [class*="flex_"] {
+    background-color: var(--member-bg);
+}
+[class*="reactorClickable_"] > [class*="flex_"] {
+    background-color: transparent;
+    padding-left: 7px;
+}
+[class*="info_"] > [class*="username_"] {
+    padding-left: 2px;
 }
 
-.sidebar_pog62O {
-    background-color: var(--dark-bg) !important;
+/* ---------- 4.4 Call ---------- */
+[class*="callContainer_"],
+[class*="sidebarOpen_"] {
+    background: var(--Window-bg) !important;
 }
 
-.sidebar_pog62O::after {
-    background: var(--main-bg) !important;
-}
-
-/* SERVER SIDEBAR */
-.wrapper_5dqHTG {
-    background-color: var(--main-bg) !important;
-}
-
-.wrapper_5dqHTG:has(.tutorialContainer_1IyMuq) {
-    margin-top: 4.8px;
-    border: 3px solid var(--main-bg);
-}
-
-/* PEOPLE SIDEBAR */
-.scroller_Bce46W {
-    background-color: var(--secondary-bg) !important;
-}
-
-/* VENCORD BETTER FOLDERS */
-.item__o8_Xq {
-    background-color: rgba(146, 173, 227, 0.3) !important;
-}
-
-.tree_5dqHTG {
-    margin-top: 10px;
-}
-
-/* SERVER CHANNEL LIST */
-.header_XH4OpX{
-    background: var(--main-bg) !important;
-}
-
-/* SERVER MEMBER LIST */
-
-/* Inside call */
-.container_9U6LUN{
-    background-color: var(--secondary-bg) !important;
-}
-.form_z_gUBg{
-    background-color: var(--button-bg);
-}
-
-
-/* ============ FRIENDS TAB ============ */
-
-.container_zrUwGA {
-    border: 3px solid var(--main-bg);
-}
-
-.page_pog62O {
+/* ---------- 4.5 Friends tab ---------- */
+[class^="page_"],
+[class*=" page_"] {
     margin: 5px 0 5px 1px;
 }
 
-.content_pog620 {
-    background-color: var(--dark-bg) !important;
-}
-
-.tabBody_zrUwGA {
+[class*="tabBody_"] {
     background-color: rgba(15, 85, 165, 0.3) !important;
 }
 
-/* REMOVE FRIEND BUTTON */
-#friend-row-remove-friend span.body-sm\/medium_RAOoio.text_cmkR8z {
+/* Remove friend button */
+#friend-row-remove-friend span[class*="text_"] {
     color: #ff0101 !important;
 }
 
+/* ---------- 4.6 Active Now tab ---------- */
 
-/* ============ MESSAGES ============ */
-
-/* MESSAGE BACKGROUND */
-.scrollerInner_8AE1Qq {
-    background-color: var(--dm-bg) !important;
+/* Activity card border */
+[class*="itemCard_"] {
+    border: 3px solid var(--border-color);
 }
 
-/* REPLY MESSAGE BACKGROUND */
-.message_SY_P2T.mentioned_SY_P2T {
+/* Activity card transparency */
+[class*="itemCard_"],
+[class*="itemCard_"] [class*="body_"],
+[class*="itemCard_"] [class*="inset_"],
+[class*="itemCard_"] [class*="gameSection_"],
+[class*="questCardContextMenuTrigger_"] {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* People */
+[class*="headerFull_"] {
+    background-color: transparent !important;
+}
+
+/* Games (VERIFY) */
+[class*="itemCard_"] [class*="section_"] {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Now playing column */
+[class*="nowPlayingColumn_"],
+[class*="nowPlayingColumn_"] [class*="wrapper_"] {   /* VERIFY */
+    background-color: rgba(14, 43, 106, 0.3) !important;
+}
+
+/* Overridden by the global 10px rule in 2.2, same as in your original.
+   Kept so the intent is visible. */
+[class*="nowPlayingColumn_"] [class*="wrapper_"] {
+    border-radius: 20px !important;
+}
+
+
+/* =====================================================================
+   5. MESSAGES
+   ===================================================================== */
+
+/* ---------- 5.1 Message background ---------- */
+/* ORDER: must stay after the transparent scroller rule in 4.2. */
+
+/* ---------- 5.2 Replies ---------- */
+[class*="message_"][class*="mentioned_"] {
     background-color: var(--reply-bg) !important;
 }
 
-/* REPLY MESSAGE SIDE BAR */
-.message_SY_P2T.mentioned_SY_P2T::before {
+/* Reply side bar */
+[class*="message_"][class*="mentioned_"]::before {
     background-color: var(--reply-bar) !important;
     border: 1px solid var(--reply-bar);
 }
 
-/* ============ INTERACTIVE UI ============ */
+/* ---------- 5.3 Reactions ---------- */
 
-/* ---------- SCROLLERS ---------- */
-
-.scroller_M3qk4j,
-.layer_q63kB5,
-.menu_M3qk4j,
-.buttonsInner_SY_P2T {
-    background: var(--button-bg) !important;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 5%;
-}
-
-/* HIDE BOTTOM CHAT GRADIENT */
-.chatTypingGradientAtBottom_8AE1Qq,
-.chatGradient_8AE1Qq {
-    display: none !important;
-}
-
-/* ---------- SCROLLBARS ---------- */
-
-.scroller_a1DYes::-webkit-scrollbar,
-.messagesWrapper_8AE1Qq .scroller_8AE1Qq::-webkit-scrollbar {
-    width: 8px !important;
-}
-
-.scroller_a1DYes::-webkit-scrollbar-thumb,
-.messagesWrapper_8AE1Qq .scroller_8AE1Qq::-webkit-scrollbar-thumb {
-    background: var(--scrollbar) !important;
-    border-radius: 10px !important;
-}
-
-.scroller_a1DYes::-webkit-scrollbar-track,
-.messagesWrapper_8AE1Qq .scroller_8AE1Qq::-webkit-scrollbar-track {
-    background: var(--scrollbar-track) !important;
-}
-
-.scroller_a1DYes::-webkit-scrollbar-thumb:hover,
-.messagesWrapper_8AE1Qq .scroller_8AE1Qq::-webkit-scrollbar-thumb:hover {
-    background: var(--scrollbar-hover) !important;
-}
-
-.scroller_ysO7Gy,
-.scroller_8AE1Qq {
-    background: var(--secondary-bg) !important;
-}
-
-/* ---------- BUTTONS ---------- */
-
-.actionButton_5GqXgh {
-    background-color: var(--secondary-bg) !important;
-}
-
-
-/* ---------- REACTION BUTTONS ---------- */
-
-/* EXISTING REACTIONS */
-.reactionInner_MmKct8 {
+/* Existing reactions */
+[class*="reactionInner_"] {
     background-color: var(--reaction-bg) !important;
     border: 1px solid var(--reaction-border) !important;
 }
 
-/* EXISTING REACTIONS HOVER */
-.reactionInner_MmKct8:hover {
+[class*="reactionInner_"]:hover {
     background-color: var(--reaction-hover-bg) !important;
 }
 
-/* ADD REACTION BUTTON */
-.reactionBtn_MmKct8 {
+/* Add reaction button */
+[class*="reactionBtn_"] {
     background-color: var(--addReaction-bg) !important;
     border: 1px solid var(--addReaction-border) !important;
 }
 
-/* ADD REACTION HOVER */
-.reactionBtn_MmKct8:hover {
+[class*="reactionBtn_"]:hover {
     background-color: var(--addReaction-hover-bg) !important;
 }
 
 
-/* ---------- SEARCH BARS ---------- */
+/* =====================================================================
+   6. INTERACTIVE UI
+   ===================================================================== */
 
-.searchBar_u88IQl,
-.container_dvN-MP {
-    background-color: var(--main-bg) !important;
+/* ---------- 6.1 Buttons ---------- */
+[class*="buttonsInner_"] {
+    background: var(--button-bg) !important;
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
-.searchBar_u88IQl {
+[class*="actionButton_"] {
+    background-color: var(--secondary-bg) !important;
+}
+
+/* ---------- 6.2 Scrollbars ---------- */
+[class*="messagesWrapper_"] [class*="scroller_"]::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+[class*="messagesWrapper_"] [class*="scroller_"]::-webkit-scrollbar-thumb {
+    background: var(--scrollbar) !important;
+    border-radius: 10px !important;
+}
+
+[class*="messagesWrapper_"] [class*="scroller_"]::-webkit-scrollbar-track {
+    background: var(--scrollbar-track) !important;
+}
+
+[class*="messagesWrapper_"] [class*="scroller_"]::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-hover) !important;
+}
+
+[class*="messagesWrapper_"] [class*="scroller_"] {
+    background: var(--secondary-bg) !important;
+}
+
+/* ---------- 6.3 Search bars ---------- */
+[class*="searchBar_"] {
+    background-color: var(--main-bg) !important;
     border-color: var(--border-color);
 }
 
-.container_dvN-MP {
-    border: 3px solid var(--main-bg);
-}
-
-/* SEARCH CHANNEL BUTTON */
-.buttonChildrenWrapper_F7qvhY {
-    border: 2px solid;
+/* Search channel button */
+[class*="buttonChildrenWrapper_"] {
+    border: 2px solid transparent;
     padding: 1px;
 }
 
-.buttonChildrenWrapper_F7qvhY {
-    border-color: transparent;
-}
-
-/* SEARCH TEXT REPLACEMENT */
-.lineClamp1_MMUIw6 .overflow__WDjet,
-.searchMessage_12gY2- {
-    font-size: 0 !important;
-}
-
-.lineClamp1_MMUIw6 .overflow__WDjet::after {
-    content: "A.R.O.N.A. is here to guide you";
-    font-size: 14px;
-}
-
-.searchMessage_12gY2-::after {
-    content: "A.R.O.N.A. is here to guide you";
-    font-size: 20px;
-    color: white;
-}
-
-
-/* ---------- INPUT FIELDS ---------- */
-
-/* PLACEHOLDER TEXT */
-.input_a1DYes::placeholder,
-.input_0PLWhS::placeholder {
-    color: white !important;
-    opacity: 1 !important;
-}
-
-.input_0PLWhS {
-    color: #fbfbfd !important;
-}
-
-.scrollableContainer_2x8-Qn {
+/* ---------- 6.4 Input fields ---------- */
+[class*="scrollableContainer_"] {
     background-color: var(--secondary-bg);
 }
 
-/* ---------- TOOLTIPS ---------- */
-
-.tooltip_ZDdyhE {
+/* ---------- 6.5 Tooltips ---------- */
+[class^="tooltip_"],
+[class*=" tooltip_"] {
     transform: translateX(0);
     background-color: var(--scrollbar-track) !important;
     transition: opacity 0.08s linear !important;
 }
 
-div.defaultColor_MMUIw6[data-text-variant="body-sm/medium"] {
+div[class*="defaultColor_"][data-text-variant="body-sm/medium"] {
     font-size: 14px !important;
 }
 
-.caretFill_ZDdyhE,
-#app-mount > div.appAsidePanelWrapper_YRXZu0 > div > div.app_YRXZu0 > div > div.layers_Fd0FEH.layers_QbT-Jy > div > div > div > div.content_pog62O > div.sidebar_pog62O.theme-dark.theme-darker.images-dark > div.sidebarList_pog62O > nav > div.positionedContainer_ysO7Gy > div > div > div {
+[class*="caretFill_"],
+[class*="sidebarList_"] [class*="positionedContainer_"] > div > div > div {
     color: var(--scrollbar-track) !important;
     background-color: var(--scrollbar-track) !important;
     border-color: var(--scrollbar-track) !important;
     fill: var(--scrollbar-track) !important;
-} 
-
-/* ============ ACTIVE NOW TAB ============ */
-
-/* ACTIVITY CARD BORDER */
-.itemCard\_-7KzVR {
-    border: 3px solid var(--border-color);
 }
 
-/* ACTIVITY CARD TRANSPARENCY */
-.itemCard\_-7KzVR.wrapper_o3hXTo.outer_ERB-Vv,
-.itemCard\_-7KzVR .body_o3hXTo,
-.itemCard\_-7KzVR .inset_ERB-Vv,
-.itemCard\_-7KzVR .gameSection_o3hXTo,
-.questCardContextMenuTrigger\_-7KzVR {
-    background: transparent !important;
-    box-shadow: none !important;
+/* ---------- 6.6 Server Activity ---------- */
+
+/* Activity */
+[class*="container_"][class*="openOnHover_"]{
+    background-color: var(--activity-bg);
 }
 
-/* PEOPLE */
-.headerFull_o3hXTo.header_o3hXTo {
-    background-color: transparent !important;
+/* Member background */
+[class*="childContainer_"] {
+    background-color: var(--member-bg);
 }
 
-/* GAMES */
-.section_o3hXTo,
-.wrapper_vVEhpw {
-    background-color: rgba(255, 255, 255, 0.1) !important;
+[class*="childContainer_"]:hover {
+    background-color: var(--member-bg-hover) !important;
 }
 
-/* NOW PLAYING COLUMN */
-.nowPlayingColumn_zrUwGA,
-.wrapper_UcGqzv {
-    background-color: rgba(14, 43, 106, 0.3) !important;
+/* =====================================================================
+   7. CUSTOM ELEMENTS
+   ===================================================================== */
+
+/* ---------- 7.1 Search text replacement ---------- */
+[class*="lineClamp1_"] [class*="overflow_"],
+[class*="searchMessage_"] {
+    font-size: 0 !important;
 }
 
-.wrapper_UcGqzv {
-    border-radius: 20px !important;
+[class*="lineClamp1_"] [class*="overflow_"]::after {
+    content: "A.R.O.N.A. is here to guide you";
+    font-size: 14px;
 }
 
+[class*="searchMessage_"]::after {
+    content: "A.R.O.N.A. is here to guide you";
+    font-size: 20px;
+    color: white;
+}
 
-/* ============ HOME ICON ============ */
-
+/* ---------- 7.2 Home icon ---------- */
 [data-list-item-id="guildsnav___home"] {
     transform: translateY(3px) !important;
 }
 
-[data-list-item-id="guildsnav___home"] .childWrapper_JJ-hgR {
+[data-list-item-id="guildsnav___home"] [class*="childWrapper_"] {
     background: transparent !important;
     background-image: url("https://i.imgur.com/PImIfKX.png") !important;
     background-size: 100% !important;
@@ -474,6 +568,73 @@ div.defaultColor_MMUIw6[data-text-variant="body-sm/medium"] {
     overflow: hidden !important;
 }
 
-[data-list-item-id="guildsnav___home"] .childWrapper_JJ-hgR svg {
+[data-list-item-id="guildsnav___home"] [class*="childWrapper_"] svg {
     display: none !important;
 }
+
+
+/* 
+=====================================================================
+   8. LEGACY
+   These elements do not have a concrete selector and might break.
+   They will remain here until I either find their selector and place them
+   elsewhere or will be removed entirely.
+=====================================================================
+*/
+
+/* ---------- 8.1 Backgrounds ---------- */
+
+.container_zrUwGA { background-color: var(--dark-bg) !important; border: 3px solid var(--main-bg); }
+
+.container_FrbQJp { background: transparent !important; border: transparent solid !important; }
+
+/* ---------- 8.2 Typography ---------- */
+.match_hm_rAU,
+.header_hm_rAU,
+.text_CXmngM { color: var(--color-main) !important; }
+
+.content_bLMKT5 > div { color: var(--color-sub) !important; }
+
+.text_cmkR8z,
+.text_CXmngM,
+.content_bLMKT5 > div { font-weight: var(--weight); }
+
+/* ---------- 8.3 Layout ---------- */
+
+/* Top bar */
+.bar_3zSH5d { background-color: var(--main-bg) !important; }
+
+/* People sidebar / call */
+.scroller_Bce46W { background-color: var(--secondary-bg) !important; }
+.container_9U6LUN { background-color: var(--secondary-bg) !important; }
+
+/* Better Folders item */
+.item__o8_Xq { background-color: rgba(146, 173, 227, 0.3) !important; }
+
+/* ---------- 8.4 Interactive UI ---------- */
+
+/* Context menu / popouts */
+.scroller_M3qk4j,
+.layer_q63kB5,
+.menu_M3qk4j {
+    background: var(--button-bg) !important;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* Scrollbars in quick-switcher-style lists */
+.scroller_a1DYes::-webkit-scrollbar { width: 8px !important; }
+.scroller_a1DYes::-webkit-scrollbar-thumb { background: var(--scrollbar) !important; border-radius: 10px !important; }
+.scroller_a1DYes::-webkit-scrollbar-track { background: var(--scrollbar-track) !important; }
+.scroller_a1DYes::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-hover) !important; }
+.scroller_ysO7Gy { background: var(--secondary-bg) !important; }
+
+/* Search bar container */
+.container_dvN-MP { background-color: var(--main-bg) !important; border: 3px solid var(--main-bg); }
+
+/* Inputs */
+.input_a1DYes::placeholder,
+.input_0PLWhS::placeholder { color: white !important; opacity: 1 !important; }
+.input_0PLWhS { color: #fbfbfd !important; }
+
+/* ---------- 8.5 Active Now tab ---------- */
+.wrapper_vVEhpw { background-color: rgba(255, 255, 255, 0.1) !important; }
