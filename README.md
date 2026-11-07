@@ -1,2 +1,2 @@
-# Discord-Transluscent-theme-for-WebM-Backround-plugin
-Theme made to exclusively work alongside with my WebM Background plugin.
+# Discord Transluscent theme for Discord Backround plugin
+Transluscent Cold theme for Discord. Designed to work alongside my Discord Background plugin and is not designed to work without it.
