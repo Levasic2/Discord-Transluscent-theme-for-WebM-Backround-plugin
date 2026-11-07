@@ -30,9 +30,13 @@
         4.3.6 Member List
         4.3.7 Gradients
     4.4 Call
+        4.4.1 Main Call
+        4.4.2 Stream Tab
+        4.4.3 Soundboard
+        4.4.4 Voice Invite
     4.5 Friends tab
     4.6 Active Now tab
-    4.7 Picker
+    4.7 Settings Tab
 
  5. MESSAGES
     5.1 Message background
@@ -47,8 +51,9 @@
     6.4 Input fields
     6.5 Tooltips
     6.6 Server Activity
-    6.7 Hover UI
-    6.8 File Preview
+    6.7 File Preview
+    6.8 Custom Plugin Additional Styling
+    6.9 Modals
 
  7. CUSTOM ELEMENTS
     7.1 Search text replacement
@@ -63,7 +68,6 @@
 
 ============ COMMENTS ============
 SELFREMINDER - reminder for myself to do something
-ORDER - must be before something
 VERIFY - need to make sure it doesn't override anything
 ==================================
 
@@ -206,7 +210,8 @@ img[class*="avatar_"] {
 [class*="membersGroupHeader_"],
 [class*="headerContainer_"],
 [class*="messageContent_"] > span,
-[class*="flexChild_"] > div {
+[class*="flexChild_"] > div,
+.webm-background-popup * {
     color: var(--color-main) !important;
     font-weight: var(--main-weight);
 }
@@ -229,7 +234,7 @@ img[class*="avatar_"] {
     font-weight: var(--weight);
 }
 
-/* 3.4 Small Font weight */
+/* ---------- 3.4 Small Font weight ---------- */
 div[class*="defaultColor_"] {
     font-weight: var(--small-weight);
 }
@@ -274,6 +279,7 @@ div[class*="defaultColor_"] {
 [class*="subtitleContainer_"] [class*="container_"]:has(> [class*="upperContainer_"]) {
     background-color: var(--chat-header-bg) !important;
     border-color: var(--border-color);
+    border-radius: 5px;
 }
 
 /* Message scroller. */
@@ -286,6 +292,8 @@ main[class*="chatContent_"] {
 [class*="chatContent_"] [class*="form_"] {
     background-color: var(--button-bg);
     padding-top: 9px;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
 }
 
 #app-mount [class*="messagesWrapper"] [class*="scrollerBase"][class*="auto"] {
@@ -318,11 +326,17 @@ main[class*="chatContent_"] {
 .vc-betterFolders-sidebar {
     background-color: var(--main-bg) !important;
     border: 3px solid var(--border-color);
+    border-radius: 5px;
     margin: 5px;
 }
 
 .vc-betterFolders-sidebar {
     margin-right: 1.5px;
+}
+
+nav:has(> [data-list-id="guildsnav"]) {
+    margin-top: 10px;
+    
 }
 
 /* 4.3.2 Server list */
@@ -331,11 +345,7 @@ main[class*="chatContent_"] {
     background-color: var(--main-bg) !important;
     margin-top: 4.8px;
     border: 3px solid var(--main-bg);
-}
-
-/* Vencord Better Folders */
-nav:has(> [data-list-id="guildsnav"]) {
-    margin-top: 10px;
+    border-radius: 5px;
 }
 
 /* 4.3.3 Channel list */
@@ -346,7 +356,8 @@ nav:has(> [data-list-id="guildsnav"]) {
 [class*="sidebarList_"] {
     margin-top: 5px;
     margin-left: 3px;
-    border-color: var(--border-color);
+    border: 3px solid var(--border-color);
+    border-radius: 5px;
 }
 
 /* 4.3.4 DM list */
@@ -356,32 +367,23 @@ nav:has(> [data-list-id="guildsnav"]) {
 
 /* 4.3.5 Profile panel */
 /* Sidebar panel */
-/* Profile Sidebar — Transparent Scroller */
 aside[class*="aside_"] [class*="scrollerFade_"] {
     background: transparent !important;
     background-color: transparent !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
 }
 
 /* Personal panel*/
-[class^="sidebar_"] > section,
-[class*=" sidebar_"] > section {
-    background: var(--side-profile) !important;
-    border: transparent solid !important;
-}
-
-[class*="panels_"] {
-    padding: 0 1px 0 3px;
-    border: 3px solid var(--main-bg);
-}
-
 [class*="panels_"] > [class*="container_"]:has(> [class*="accountPopoutButtonWrapper_"]) {
-    background-color: var(--main-bg) !important;
-    border-color: white;
+    background-color: var(--dark-bg) !important;
+    border-radius: 5px;
     padding-left: 10px;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
 }
 
 /* 4.3.6 Member List */
-
 [class*="content_"] > [class*="flex_"] {
     background-color: var(--Window-bg);
 }
@@ -400,9 +402,101 @@ aside[class*="aside_"] [class*="scrollerFade_"] {
 }
 
 /* ---------- 4.4 Call ---------- */
+/* 4.4.1 Main Call*/
 [class*="callContainer_"],
-[class*="sidebarOpen_"] {
+[class*="sidebarOpen_"],
+[class*="sidebar_"] > [class*="panels_"] {
     background: var(--Window-bg) !important;
+}
+
+/* People sidebar / call */
+[class*="panels_"] > [class*="wrapper_"] {
+    background-color: var(--dark-bg) !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+    border-radius: 5px;
+}
+
+/* 4.4.2 Stream Tab */
+/* Modal */
+div[data-mana-component="modal"][class*="container_"] {
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+}
+
+/* Hide footer's own appearance */
+[class*="root_"] > [class*="footer_"] {
+    visibility: hidden !important;
+    background: transparent !important;
+}
+
+/* Show footer children */
+[class*="root_"] > [class*="footer_"] > * {
+    visibility: visible !important;
+}
+
+/* Summary: no background or blur */
+[class*="root_"] > [class*="footer_"] [class*="summary_"],
+[class*="root_"] > [class*="footer_"] [class*="summary_"] * {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+}
+
+/* Settings button */
+[class*="root_"] > [class*="footer_"] button {
+    visibility: visible !important;
+}
+
+/* 4.4.3 Soundboard */
+[class*="animatorRight_"] > div > div > [class*="container_"] {
+    background-color: var(--sound-bg-hover);
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+}
+[class*="popoutContentWrapper_"],
+[class*="interactionsContainer_"] {
+    background-color: var(--sound-bg-hover);
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+}
+[class*="picker_"] {
+    background-color: var(--sound-bg-hover);
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+}
+
+/* 4.4.4 Voice Invite */
+/* Voice Invite Suggestions popout */
+div[class*="layer_"]:has([role="dialog"][aria-label="Voice Invite Suggestions"]) {
+    background: transparent !important;
+}
+
+[role="dialog"][aria-label="Voice Invite Suggestions"] {
+    background: var(--chat-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 14px !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Inner container */
+[role="dialog"][aria-label="Voice Invite Suggestions"] [class*="inner_"] {
+    background: transparent !important;
+}
+
+/* User entries */
+[role="dialog"][aria-label="Voice Invite Suggestions"] li[class*="row_"] {
+    background: transparent !important;
+    border-radius: 8px !important;
+    transition: background 0.2s ease !important;
+}
+
+/* Hover */
+[role="dialog"][aria-label="Voice Invite Suggestions"] li[class*="row_"]:hover {
+    background: var(--main-bg) !important;
 }
 
 /* ---------- 4.5 Friends tab ---------- */
@@ -410,6 +504,8 @@ aside[class*="aside_"] [class*="scrollerFade_"] {
 [class*=" page_"] {
     margin: 1px;
     border-color: var(--border-color);
+    border-radius: 15px;
+    margin-top: 2px;
 }
 
 [class*="tabBody_"] {
@@ -454,15 +550,23 @@ aside[class*="aside_"] [class*="scrollerFade_"] {
     background-color: rgba(14, 43, 106, 0.3) !important;
 }
 
-/* Overridden by the global 10px rule in 2.2, same as in your original.
-   Kept so the intent is visible. */
 [class*="nowPlayingColumn_"] [class*="wrapper_"] {
     border-radius: 20px !important;
 }
 
-/* 4.7 Picker */
-[class*="picker_"] {
-    background-color: var(--picker-bg);
+/* 4.7 Settings tab */
+[class*="container_"][class*="modal_"],
+.vc-card-base,
+.vc-addon-card,
+.vc-settings-quickActions-pill {
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+}
+.vc-card-base,
+.vc-addon-card,
+.vc-settings-quickActions-pill {
+    background-color: var(--dark-bg);
+    border: none;
 }
 
 /* =====================================================================
@@ -489,6 +593,7 @@ aside[class*="aside_"] [class*="scrollerFade_"] {
 [class*="reactionInner_"] {
     background-color: var(--reaction-bg) !important;
     border: 1px solid var(--reaction-border) !important;
+    border-radius: 5px;
 }
 
 [class*="reactionInner_"]:hover {
@@ -499,6 +604,7 @@ aside[class*="aside_"] [class*="scrollerFade_"] {
 [class*="reactionBtn_"] {
     background-color: var(--addReaction-bg) !important;
     border: 1px solid var(--addReaction-border) !important;
+    border-radius: 5px;
 }
 
 [class*="reactionBtn_"]:hover {
@@ -523,13 +629,25 @@ aside[class*="aside_"] [class*="scrollerFade_"] {
    ===================================================================== */
 
 /* ---------- 6.1 Buttons ---------- */
-[class*="buttonsInner_"] {
+/* Regular Buttons */
+[class*="buttonsInner_"],
+[class*="buttonChildrenWrapper_"] {
     background: var(--button-bg) !important;
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
 }
 
 [class*="actionButton_"] {
     background-color: var(--secondary-bg) !important;
+}
+
+/* Stream Buttons */
+[class*="pillItem_"] {
+    background-color: var(--dark-bg);
+}
+
+/* In call Buttons */
+[class*="buttonSection_"] {
+    background-color: var(--secondary-bg);
 }
 
 /* ---------- 6.2 Scrollbars ---------- */
@@ -613,6 +731,11 @@ input[data-mana-component="text-input"][role="searchbox"] {
     transition: opacity 0.08s linear !important;
 }
 
+[class*="tooltipLayer_"] {
+    border-color: var(--border-color) !important;
+    border-radius: 9px;
+}
+
 div[class*="defaultColor_"][data-text-variant="body-sm/medium"] {
     font-size: 14px !important;
 }
@@ -641,16 +764,7 @@ div[class*="defaultColor_"][data-text-variant="body-sm/medium"] {
     background-color: var(--member-bg-hover) !important;
 }
 
-/* 6.7 Hover UI */
-[class*="animatorRight_"] > div > div > [class*="container_"] {
-    background-color: var(--sound-bg-hover);
-}
-[class*="popoutContentWrapper_"],
-[class*="interactionsContainer_"] {
-    background-color: var(--sound-bg-hover);
-}
-
-/* 6.8 File Preview */
+/* 6.7 File Preview */
 /* Preview Background */
 .vc-shiki-container {
     background-color: var(--dark-bg);
@@ -661,11 +775,76 @@ div[class*="defaultColor_"][data-text-variant="body-sm/medium"] {
     border-top: 1px solid var(--border-color);
 }
 
+/* 6.8 Custom Plugin Additional Styling */
+/* This is styling for the Background plugin that I made, otherwise it does nothing */
+
+/* Background */
+.webm-background-popup {
+    background-color: var(--chat-bg) !important;
+    border-color: var(--border-color) !important;
+}
+
+.webm-background-popup button {
+    background-color: var(--chat-bg) !important;
+    border-color: var(--border-color) !important;
+}
+
+/* Main title */
+.webm-background-popup > div:first-child strong {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
+/* Section heading */
+.webm-background-popup h3 {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+}
+/* Video filenames */
+.webm-background-popup section span {
+    font-size: 13px !important;
+}
+/* Delete buttons */
+.webm-background-popup section button {
+    background: rgba(180, 50, 50, 0.2) !important;
+    color: #ff7777 !important;
+    border: 1px solid rgba(255, 80, 80, 0.35) !important;
+    border-radius: 5px !important;
+    padding: 6px 10px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+/* Delete button hover */
+.webm-background-popup section button:hover {
+    background: rgba(200, 50, 50, 0.4) !important;
+    color: #ffffff !important;
+}
+
+/* Frosted glass popup */
+.webm-background-popup {
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+}
+
+/* 6.9 Modals */
+/* Delete Message modal */
+div[data-mana-component="modal"]:has(header [id^="heading-"]) {
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+}
+div[data-mana-component="modal"]:has(header [id^="heading-"]),
+div[data-mana-component="modal"]:has(header [id^="heading-"]) main > div {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 /* =====================================================================
    7. CUSTOM ELEMENTS
    ===================================================================== */
 
-/* ---------- 7.1 Search text replacement ---------- */
+/* ---------- 7.1 Search Channels style ---------- */
 [class*="lineClamp1_"] [class*="overflow_"],
 [class*="searchMessage_"] {
     font-size: 0 !important;
@@ -676,10 +855,11 @@ div[class*="defaultColor_"][data-text-variant="body-sm/medium"] {
     font-size: 14px;
 }
 
-[class*="searchMessage_"]::after {
-    content: "A.R.O.N.A. is here to guide you";
-    font-size: 20px;
-    color: white;
+div[data-mana-component="modal"]:has(input[placeholder]) {
+    background-color: transparent !important;
+    border: none !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
 }
 
 /* ---------- 7.2 Home icon ---------- */
@@ -718,8 +898,6 @@ div[class*="defaultColor_"][data-text-variant="body-sm/medium"] {
 
 /* People sidebar / call */
 
-.container_9U6LUN { background-color: var(--secondary-bg) !important; }
-
 /* ---------- 8.4 Interactive UI ---------- */
 
 /* Context menu / popouts */
@@ -736,6 +914,3 @@ div[class*="defaultColor_"][data-text-variant="body-sm/medium"] {
 .scroller_a1DYes::-webkit-scrollbar-track { background: var(--scrollbar-track) !important; }
 .scroller_a1DYes::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-hover) !important; }
 .scroller_ysO7Gy { background: var(--secondary-bg) !important; }
-
-/* Search bar container */
-.container_dvN-MP { background-color: var(--main-bg) !important; border: 3px solid var(--main-bg); }

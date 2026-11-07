@@ -5,7 +5,7 @@
      "name": "Levasic2"
  },
  "description": "Cold Discord theme that is either translucent or has a background depending on if you use my WebM Background plugin or not. This theme is made to exclusively work alongside with my Discord Background plugin.",
- "version": "1.2.0",
+ "version": "1.2.1",
  "license": "MIT",
  "type": "replugged-theme"
 }
