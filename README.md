@@ -1,2 +1,8 @@
-# Discord Transluscent theme for Discord Backround plugin
-Transluscent Cold theme for Discord. Designed to work alongside my Discord Background plugin and is not designed to work without it.
+# Discord Translucent theme for Discord Background plugin
+Translucent Cold theme for Discord designed to work alongside my Discord Background plugin.
+
+# Additional information
+- Was this vibecoded?
+No, this was not vibecoded. However, AI was used for debugging.
+- Is the plugin currently downloadable?
+No, it is not currently published anywhere.
