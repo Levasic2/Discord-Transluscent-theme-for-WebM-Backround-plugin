@@ -869,7 +869,7 @@ div[data-mana-component="modal"]:has(input[placeholder]) {
 
 [data-list-item-id="guildsnav___home"] [class*="childWrapper_"] {
     background: transparent !important;
-    background-image: url("https://levasic2.github.io/Discord-Transluscent-theme-for-WebM-Backround-plugin/Translucent/img/Icon.png") !important;
+    background-image: url("https://github.com/Levasic2/Discord-Transluscent-theme-for-WebM-Backround-plugin/blob/main/img/Icon.png?raw=true") !important;
     background-size: 100% !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
