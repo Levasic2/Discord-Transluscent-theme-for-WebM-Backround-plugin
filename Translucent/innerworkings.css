@@ -13,8 +13,8 @@
     2.3 Safety fallback
 
  3. TYPOGRAPHY
-    3.1 Main color
-    3.2 Sub color
+    3.1 Main font
+    3.2 Sub font
     3.3 Font weight
     3.4 Small Font weight
 
@@ -42,7 +42,7 @@
     5.1 Message background
     5.2 Replies
     5.3 Reactions
-    5.4 Embeds
+    5.4 Embeds and Files
 
  6. INTERACTIVE UI
     6.1 Buttons
@@ -56,21 +56,17 @@
     6.9 Modals
 
  7. CUSTOM ELEMENTS
-    7.1 Search text replacement
+    7.1 Search Channels style
     7.2 Home icon
 
  8. LEGACY (exact-hash selectors, to be converted)
-    8.1 Backgrounds
-    8.2 Typography
-    8.3 Layout
-    8.4 Interactive UI
-    8.5 Active Now tab
+    8.1 Layout
+    8.2 Interactive UI
+    8.3 Modals & previews
 
 ============ COMMENTS ============
 SELFREMINDER - reminder for myself to do something
 VERIFY - need to make sure it doesn't override anything
-==================================
-
 ================================== */
 
 
@@ -95,6 +91,7 @@ VERIFY - need to make sure it doesn't override anything
     --picker-bg: rgba(38, 52, 109, 0.7);
     --preview-footer-bg: rgba(0, 0, 0, 0.5);
     --embed-bg: rgba(0, 0, 0, 0.5);
+    --preview-bg: rgba(8, 14, 42, 0.9);
     --gradient-bg: linear-gradient(
         180deg,
         rgba(5, 18, 44, 0.8),
@@ -176,7 +173,7 @@ body,
 [class*="stackedBars_"],
 [class*="root_"],
 [class*="popout_"] {
-    background: var(--Window-bg) !important;
+    background-color: var(--Window-bg) !important;
 }
 
 /* ---------- 2.2 Rounded corners ---------- */
@@ -264,11 +261,6 @@ div[class*="defaultColor_"] {
     background: var(--Window-bg) !important;
 }
 
-/* Reply BG */
-[class*="replyBar_"] {
-    background-color: var(--main-bg);
-}
-
 /* Main chat background */
 [class^="chat_"],
 [class*=" chat_"] {
@@ -282,12 +274,6 @@ div[class*="defaultColor_"] {
     border-radius: 5px;
 }
 
-/* Message scroller. */
-[class*="scrollerInner_"],
-main[class*="chatContent_"] {
-    background: var(--Window-bg) !important;
-}
-
 /* Inside call (VERIFY) */
 [class*="chatContent_"] [class*="form_"] {
     background-color: var(--button-bg);
@@ -296,18 +282,11 @@ main[class*="chatContent_"] {
     -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
 }
 
-#app-mount [class*="messagesWrapper"] [class*="scrollerBase"][class*="auto"] {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-
 /* Hide bottom chat gradient */
 [class*="chatTypingGradientAtBottom_"],
 [class*="chatGradient_"] {
     display: none !important;
 }
-
-/* Reply Background */
 
 /* ---------- 4.3 Sidebars ---------- */
 
@@ -322,6 +301,14 @@ main[class*="chatContent_"] {
     background: var(--main-bg) !important;
 }
 
+/* Channel list */
+[class*="sidebarList_"] {
+    margin-top: 5px;
+    margin-left: 3px;
+    border: 3px solid var(--border-color);
+    border-radius: 5px;
+}
+
 /* Better Folders */
 .vc-betterFolders-sidebar {
     background-color: var(--main-bg) !important;
@@ -334,12 +321,12 @@ main[class*="chatContent_"] {
     margin-right: 1.5px;
 }
 
+/* 4.3.2 Server list */
 nav:has(> [data-list-id="guildsnav"]) {
     margin-top: 10px;
     
 }
 
-/* 4.3.2 Server list */
 /* Server sidebar (VERIFY) */
 [class*="wrapper_"]:has([class*="tutorialContainer_"]) {
     background-color: var(--main-bg) !important;
@@ -353,17 +340,9 @@ nav:has(> [data-list-id="guildsnav"]) {
 [class*="sidebarList_"] [class*="header_"] {
     background: var(--main-bg) !important;
 }
-[class*="sidebarList_"] {
-    margin-top: 5px;
-    margin-left: 3px;
-    border: 3px solid var(--border-color);
-    border-radius: 5px;
-}
 
 /* 4.3.4 DM list */
-[class*="privateChannels_"] > [class*="scroller_Bce46W"] { 
-    background-color: var(--secondary-bg) !important; 
-}
+/* (only a legacy rule so far, see 8.1) */
 
 /* 4.3.5 Profile panel */
 /* Sidebar panel */
@@ -383,15 +362,19 @@ aside[class*="aside_"] [class*="scrollerFade_"] {
     -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
 }
 
+/* People sidebar / call */
+[class*="panels_"] > [class*="wrapper_"] {
+    background-color: var(--dark-bg) !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+    border-radius: 5px;
+}
+
 /* 4.3.6 Member List */
 [class*="content_"] > [class*="flex_"] {
     background-color: var(--Window-bg);
 }
 
-[class*="reactorClickable_"] > [class*="flex_"] {
-    background-color: transparent;
-    padding-left: 7px;
-}
 [class*="info_"] > [class*="username_"] {
     padding-left: 2px;
 }
@@ -409,21 +392,7 @@ aside[class*="aside_"] [class*="scrollerFade_"] {
     background: var(--Window-bg) !important;
 }
 
-/* People sidebar / call */
-[class*="panels_"] > [class*="wrapper_"] {
-    background-color: var(--dark-bg) !important;
-    backdrop-filter: blur(20px) saturate(150%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
-    border-radius: 5px;
-}
-
 /* 4.4.2 Stream Tab */
-/* Modal */
-div[data-mana-component="modal"][class*="container_"] {
-    backdrop-filter: blur(20px) saturate(150%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
-}
-
 /* Hide footer's own appearance */
 [class*="root_"] > [class*="footer_"] {
     visibility: hidden !important;
@@ -461,7 +430,8 @@ div[data-mana-component="modal"][class*="container_"] {
     backdrop-filter: blur(20px) saturate(150%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
 }
-[class*="picker_"] {
+/* Sound Picker */
+[id^="popout_"]>div>div>[class*="picker_"] {
     background-color: var(--sound-bg-hover);
     backdrop-filter: blur(20px) saturate(150%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
@@ -554,7 +524,8 @@ div[class*="layer_"]:has([role="dialog"][aria-label="Voice Invite Suggestions"])
     border-radius: 20px !important;
 }
 
-/* 4.7 Settings tab */
+/* ---------- 4.7 Settings Tab ---------- */
+/* Vencord Settings */
 [class*="container_"][class*="modal_"],
 .vc-card-base,
 .vc-addon-card,
@@ -568,15 +539,36 @@ div[class*="layer_"]:has([role="dialog"][aria-label="Voice Invite Suggestions"])
     background-color: var(--dark-bg);
     border: none;
 }
+div[data-mana-component="modal"]:has(.vc-plugin-modal-header h3) {
+    background: var(--dark-bg) !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+}
 
 /* =====================================================================
    5. MESSAGES
    ===================================================================== */
 
 /* ---------- 5.1 Message background ---------- */
+/* Message scroller. */
+[class*="scrollerInner_"],
+main[class*="chatContent_"] {
+    background: var(--Window-bg) !important;
+}
 
+#app-mount [class*="messagesWrapper"] [class*="scrollerBase"][class*="auto"] {
+    background: transparent !important;
+    background-color: transparent !important;
+}
 
 /* ---------- 5.2 Replies ---------- */
+/* Reply BG */
+[class*="replyBar_"] {
+    background-color: var(--main-bg);
+}
+
 [class*="message_"][class*="mentioned_"] {
     background-color: var(--reply-bg) !important;
 }
@@ -616,11 +608,17 @@ div[class*="layer_"]:has([role="dialog"][aria-label="Voice Invite Suggestions"])
     background-color: var(--reaction-info);
 }
 
-/* 5.4 Embeds and Files */
+/* Reactors list */
+[class*="reactorClickable_"] > [class*="flex_"] {
+    background-color: transparent;
+    padding-left: 7px;
+}
+
+/* ---------- 5.4 Embeds and Files ---------- */
 [class*="embedFull_"] {
     background-color: var(--embed-bg);
 }
-[class*="file_"] {
+[class^="file_"], [class*=" file_"] {
     background-color: var(--embed-bg);
 }
 
@@ -631,9 +629,10 @@ div[class*="layer_"]:has([role="dialog"][aria-label="Voice Invite Suggestions"])
 /* ---------- 6.1 Buttons ---------- */
 /* Regular Buttons */
 [class*="buttonsInner_"],
-[class*="buttonChildrenWrapper_"] {
+[class*="fancylib-close-button"] {
     background: var(--button-bg) !important;
-    border-radius: 5px;
+    border-color: var(--border-color) !important;
+    border-radius: 5px !important;
 }
 
 [class*="actionButton_"] {
@@ -764,7 +763,7 @@ div[class*="defaultColor_"][data-text-variant="body-sm/medium"] {
     background-color: var(--member-bg-hover) !important;
 }
 
-/* 6.7 File Preview */
+/* ---------- 6.7 File Preview ---------- */
 /* Preview Background */
 .vc-shiki-container {
     background-color: var(--dark-bg);
@@ -775,36 +774,62 @@ div[class*="defaultColor_"][data-text-variant="body-sm/medium"] {
     border-top: 1px solid var(--border-color);
 }
 
-/* 6.8 Custom Plugin Additional Styling */
-/* This is styling for the Background plugin that I made, otherwise it does nothing */
-
-/* Background */
-.webm-background-popup {
+/* ---------- 6.8 Custom Plugin Additional Styling ---------- */
+/* FancyLib Plugin */
+/* FancyLib background */
+.fancylib-popup,
+.fancylib-content {
     background-color: var(--chat-bg) !important;
     border-color: var(--border-color) !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+    border-radius: 8px;
+}
+.fancylib-settings,
+.fancylib-sidebar {
+    background: transparent !important;
+}
+.fancylib-sidebar {
+    border-left: solid var(--border-color) !important;
 }
 
-.webm-background-popup button {
-    background-color: var(--chat-bg) !important;
+/* FancyLib toggle background */
+.fancylib-plugin-toggle-container {
+    background-color: var(--dark-bg) !important;
     border-color: var(--border-color) !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+    border-radius: 8px;
 }
 
-/* Main title */
-.webm-background-popup > div:first-child strong {
+/* FancyLib main title */
+.fancylib-title {
     font-size: 16px !important;
     font-weight: 700 !important;
 }
-/* Section heading */
-.webm-background-popup h3 {
+
+/* WebMBackground section heading */
+.fancylib-plugin-settings h3 {
     font-size: 15px !important;
     font-weight: 600 !important;
 }
+
 /* Video filenames */
-.webm-background-popup section span {
+.fancylib-plugin-settings section span {
     font-size: 13px !important;
 }
+
+/* Import button */
+.fancylib-plugin-settings section label {
+    background-color: var(--dark-bg) !important;
+    border-color: var(--border-color) !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+    border-radius: 8px;
+}
+
 /* Delete buttons */
-.webm-background-popup section button {
+.fancylib-plugin-settings section button {
     background: rgba(180, 50, 50, 0.2) !important;
     color: #ff7777 !important;
     border: 1px solid rgba(255, 80, 80, 0.35) !important;
@@ -813,31 +838,41 @@ div[class*="defaultColor_"][data-text-variant="body-sm/medium"] {
     font-size: 12px !important;
     font-weight: 600 !important;
     cursor: pointer !important;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease !important;
 }
+
 /* Delete button hover */
-.webm-background-popup section button:hover {
+.fancylib-plugin-settings section button:hover {
     background: rgba(200, 50, 50, 0.4) !important;
     color: #ffffff !important;
 }
 
-/* Frosted glass popup */
-.webm-background-popup {
+/* ---------- 6.9 Modals ---------- */
+/* Modal (stream tab) */
+div[data-mana-component="modal"][class*="container_"] {
     backdrop-filter: blur(20px) saturate(150%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
 }
 
-/* 6.9 Modals */
-/* Delete Message modal */
+/* Modal frosted glass */
 div[data-mana-component="modal"]:has(header [id^="heading-"]) {
     backdrop-filter: blur(20px) saturate(150%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
 }
+
 div[data-mana-component="modal"]:has(header [id^="heading-"]),
 div[data-mana-component="modal"]:has(header [id^="heading-"]) main > div {
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
+}
+
+/* Search modal */
+div[data-mana-component="modal"]:has(input[placeholder]) {
+    background-color: transparent !important;
+    border: none !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
 }
 
 /* =====================================================================
@@ -853,13 +888,6 @@ div[data-mana-component="modal"]:has(header [id^="heading-"]) main > div {
 [class*="lineClamp1_"] [class*="overflow_"]::after {
     content: "A.R.O.N.A. is here to guide you";
     font-size: 14px;
-}
-
-div[data-mana-component="modal"]:has(input[placeholder]) {
-    background-color: transparent !important;
-    border: none !important;
-    backdrop-filter: blur(20px) saturate(150%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
 }
 
 /* ---------- 7.2 Home icon ---------- */
@@ -891,14 +919,17 @@ div[data-mana-component="modal"]:has(input[placeholder]) {
 =====================================================================
 */
 
-/* ---------- 8.3 Layout ---------- */
+/* ---------- 8.1 Layout ---------- */
 
 /* Top bar */
 .bar_3zSH5d { background-color: var(--main-bg) !important; }
 
-/* People sidebar / call */
+/* DM list */
+[class*="privateChannels_"] > [class*="scroller_Bce46W"] { 
+    background-color: var(--secondary-bg) !important; 
+}
 
-/* ---------- 8.4 Interactive UI ---------- */
+/* ---------- 8.2 Interactive UI ---------- */
 
 /* Context menu / popouts */
 .scroller_M3qk4j,
@@ -914,3 +945,42 @@ div[data-mana-component="modal"]:has(input[placeholder]) {
 .scroller_a1DYes::-webkit-scrollbar-track { background: var(--scrollbar-track) !important; }
 .scroller_a1DYes::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-hover) !important; }
 .scroller_ysO7Gy { background: var(--secondary-bg) !important; }
+
+/* ---------- 8.3 Modals & previews ---------- */
+
+/* Message preview container */
+.preview_TpS9Es {
+    background: var(--preview-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+}
+
+/* Create Server */
+/* Background */
+.modal_CHlSZL.root__KoJTP {
+    background: var(--chat-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Template buttons */
+.modal_CHlSZL .container_cidbEB {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    transition: background 0.2s ease, border-color 0.2s ease !important;
+}
+
+/* Template button hover */
+.modal_CHlSZL .container_cidbEB:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
