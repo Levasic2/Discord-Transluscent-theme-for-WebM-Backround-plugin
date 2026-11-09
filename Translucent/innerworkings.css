@@ -855,8 +855,12 @@ div[data-mana-component="modal"]:has(input[placeholder]) {
     border-left: solid var(--border-color) !important;
 }
 
-/* FancyLib toggle background */
-.fancylib-plugin-toggle-container {
+/* FancyLib toggle and input background */
+.fancylib-plugin-toggle-container,
+.templatecss-input,
+.templatecss-select,
+.templatecss-metadata,
+.templatecss-preview {
     background-color: var(--dark-bg) !important;
     border-color: var(--border-color) !important;
     backdrop-filter: blur(20px) saturate(150%) !important;
