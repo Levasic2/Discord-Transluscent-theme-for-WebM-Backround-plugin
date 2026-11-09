@@ -52,12 +52,12 @@
     6.5 Tooltips
     6.6 Server Activity
     6.7 File Preview
-    6.8 Custom Plugin Additional Styling
-    6.9 Modals
+    6.8 Modals
 
  7. CUSTOM ELEMENTS
-    7.1 Search Channels style
+    7.1 Search Channels Style
     7.2 Home icon
+    7.3 Custom Plugin Style
 
  8. LEGACY (exact-hash selectors, to be converted)
     8.1 Layout
@@ -774,80 +774,7 @@ div[class*="defaultColor_"][data-text-variant="body-sm/medium"] {
     border-top: 1px solid var(--border-color);
 }
 
-/* ---------- 6.8 Custom Plugin Additional Styling ---------- */
-/* FancyLib Plugin */
-/* FancyLib background */
-.fancylib-popup,
-.fancylib-content {
-    background-color: var(--chat-bg) !important;
-    border-color: var(--border-color) !important;
-    backdrop-filter: blur(20px) saturate(150%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
-    border-radius: 8px;
-}
-.fancylib-settings,
-.fancylib-sidebar {
-    background: transparent !important;
-}
-.fancylib-sidebar {
-    border-left: solid var(--border-color) !important;
-}
-
-/* FancyLib toggle background */
-.fancylib-plugin-toggle-container {
-    background-color: var(--dark-bg) !important;
-    border-color: var(--border-color) !important;
-    backdrop-filter: blur(20px) saturate(150%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
-    border-radius: 8px;
-}
-
-/* FancyLib main title */
-.fancylib-title {
-    font-size: 16px !important;
-    font-weight: 700 !important;
-}
-
-/* WebMBackground section heading */
-.fancylib-plugin-settings h3 {
-    font-size: 15px !important;
-    font-weight: 600 !important;
-}
-
-/* Video filenames */
-.fancylib-plugin-settings section span {
-    font-size: 13px !important;
-}
-
-/* Import button */
-.fancylib-plugin-settings section label {
-    background-color: var(--dark-bg) !important;
-    border-color: var(--border-color) !important;
-    backdrop-filter: blur(20px) saturate(150%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
-    border-radius: 8px;
-}
-
-/* Delete buttons */
-.fancylib-plugin-settings section button {
-    background: rgba(180, 50, 50, 0.2) !important;
-    color: #ff7777 !important;
-    border: 1px solid rgba(255, 80, 80, 0.35) !important;
-    border-radius: 5px !important;
-    padding: 6px 10px !important;
-    font-size: 12px !important;
-    font-weight: 600 !important;
-    cursor: pointer !important;
-    transition: background 0.2s ease, color 0.2s ease !important;
-}
-
-/* Delete button hover */
-.fancylib-plugin-settings section button:hover {
-    background: rgba(200, 50, 50, 0.4) !important;
-    color: #ffffff !important;
-}
-
-/* ---------- 6.9 Modals ---------- */
+/* ---------- 6.8 Modals ---------- */
 /* Modal (stream tab) */
 div[data-mana-component="modal"][class*="container_"] {
     backdrop-filter: blur(20px) saturate(150%) !important;
@@ -907,6 +834,79 @@ div[data-mana-component="modal"]:has(input[placeholder]) {
 
 [data-list-item-id="guildsnav___home"] [class*="childWrapper_"] svg {
     display: none !important;
+}
+
+/* ---------- 7.3 Custom Plugin Style ---------- */
+/* FancyLib background */
+.fancylib-popup,
+.fancylib-content {
+    background-color: var(--chat-bg) !important;
+    border-color: var(--border-color) !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+    border-radius: 8px;
+}
+.fancylib-settings,
+.fancylib-sidebar {
+    background: transparent !important;
+}
+.fancylib-sidebar {
+    border-left: solid var(--border-color) !important;
+}
+
+/* FancyLib toggle background */
+.fancylib-plugin-toggle-container {
+    background-color: var(--dark-bg) !important;
+    border-color: var(--border-color) !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+    border-radius: 8px;
+}
+
+/* FancyLib main title */
+.fancylib-title {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
+
+/* WebMBackground section heading */
+.fancylib-plugin-settings h3 {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+}
+
+/* Video filenames */
+.fancylib-plugin-settings section span {
+    font-size: 13px !important;
+}
+
+/* Import button */
+.fancylib-plugin-settings section label {
+    background-color: var(--dark-bg) !important;
+    border-color: var(--border-color) !important;
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+/* Delete button */
+.fancylib-plugin-settings section button {
+    background: rgba(180, 50, 50, 0.2) !important;
+    color: #ff7777 !important;
+    border: 1px solid rgba(255, 80, 80, 0.35) !important;
+    border-radius: 5px !important;
+    padding: 6px 10px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: background 0.2s ease, color 0.2s ease !important;
+}
+
+/* Delete button hover */
+.fancylib-plugin-settings section button:hover {
+    background: rgba(200, 50, 50, 0.4) !important;
+    color: #ffffff !important;
 }
 
 
