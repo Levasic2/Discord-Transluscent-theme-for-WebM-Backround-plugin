@@ -430,12 +430,6 @@ aside[class*="aside_"] [class*="scrollerFade_"] {
     backdrop-filter: blur(20px) saturate(150%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
 }
-/* Sound Picker */
-[id^="popout_"]>div>div>[class*="picker_"] {
-    background-color: var(--sound-bg-hover);
-    backdrop-filter: blur(20px) saturate(150%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
-}
 
 /* 4.4.4 Voice Invite */
 /* Voice Invite Suggestions popout */
@@ -802,6 +796,13 @@ div[data-mana-component="modal"]:has(input[placeholder]) {
     -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
 }
 
+/* Pickers */
+[id^="popout_"]>div>div>[class*="picker_"] {
+    background-color: var(--sound-bg-hover);
+    backdrop-filter: blur(20px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+}
+
 /* =====================================================================
    7. CUSTOM ELEMENTS
    ===================================================================== */
@@ -891,7 +892,7 @@ div[data-mana-component="modal"]:has(input[placeholder]) {
 }
 
 /* Delete button */
-.fancylib-plugin-settings section button {
+.fancylib-plugin-settings section button:not(.fancylib-plugin-toggle) {
     background: rgba(180, 50, 50, 0.2) !important;
     color: #ff7777 !important;
     border: 1px solid rgba(255, 80, 80, 0.35) !important;
@@ -904,11 +905,10 @@ div[data-mana-component="modal"]:has(input[placeholder]) {
 }
 
 /* Delete button hover */
-.fancylib-plugin-settings section button:hover {
+.fancylib-plugin-settings section button:not(.fancylib-plugin-toggle):hover {
     background: rgba(200, 50, 50, 0.4) !important;
     color: #ffffff !important;
 }
-
 
 /* 
 =====================================================================
